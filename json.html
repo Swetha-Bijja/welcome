@@ -1,0 +1,65 @@
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <title>GFG User Details</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+    <style>
+        #table {
+            margin: 0 auto;
+            font-size: large;
+            border: 1px solid black;
+        }
+        h1{text-align: center;}
+        th,td {
+            font-weight: lighter;
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+  
+<body>
+    <section>
+        <h1>JSON objects into table</h1>
+        <table id='table'>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>college</th>
+                <th>year</th>
+                <th>sem</th>
+            </tr>
+            <script>
+                $(document).ready(function () {
+                    $.getJSON("object.json", function (data) {
+                        var student = '';
+                        $.each(data, function (key, value) {
+                            student += '<tr>';
+                            student += '<td>' + 
+                                value.name + '</td>';
+  
+                            student += '<td>' + 
+                                value.age + '</td>';
+  
+                            student += '<td>' + 
+                                value.college + '</td>';
+  
+                            student += '<td>' + 
+                                value.year + '</td>';
+                            
+                            student += '<td>' + 
+                                value.sem + '</td>';
+  
+                            student += '</tr>';
+                        });
+                        $('#table').append(student);
+                    });
+                });
+            </script>
+    </section>
+</body>
+  
+</html>
